@@ -1,11 +1,16 @@
 var models = require('../models');
 
 module.exports = {
+  // a function which handles a get request for all messages
   get: function (req, res) {
-    models.getAll();
-  }, // a function which handles a get request for all messages
+    var data = models.messages.getAll();
+    res.send(JSON.stringify(data));
+
+  },
+
+  // a function which handles posting a message to the database
   post: function (req, res) {
-    // Sending req.body to
-    models.create(req.body);
-  } // a function which handles posting a message to the database
+    models.messages.create(req.body);
+    res.end();
+  }
 };
