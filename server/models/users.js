@@ -13,7 +13,6 @@ module.exports = {
   },
   create: function (input) {
     db.connection.query(`SELECT id FROM users WHERE username = "${input.username}";`, (err, result) => {
-      console.log('result', result);
       if (err) {
         console.log(err);
       } else {
